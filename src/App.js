@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
+import stocks from "./stocks.svg";
 
 export default function App() {
   var [result, setResult] = useState("");
@@ -62,40 +63,61 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Stocks Yay or Nay?</h1>
-      <p>Wanna know if your stock gained profit or loss? Let's dive in!</p>
+      <header>
+        <h1>Stocks Yay or Nay?</h1>
+        <div>
+          <a href="https://github.com/himadri2110/profit-or-loss">
+            GitHub Repo
+          </a>
+        </div>
+      </header>
 
-      <form>
-        <input
-          type="number"
-          id="initial-price"
-          placeholder="Initial Stock Price"
-          required
-          autoFocus
-        ></input>
-        <input
-          type="number"
-          id="quantity"
-          placeholder="Quantity of Stock"
-          required
-        ></input>
-        <input
-          type="number"
-          id="current-price"
-          placeholder="Current Stock Price"
-          required
-        ></input>
+      <div class="wrapper">
+        <div className="main">
+          <p>Wanna know if your stock gained profit or loss?</p>
+          <p>Let's dive in!</p>
 
-        <button
-          type="submit"
-          className="check-btn"
-          onClick={(event) => checkHandler(event)}
-        >
-          Check
-        </button>
-      </form>
+          <form>
+            <input
+              type="number"
+              id="initial-price"
+              placeholder="Initial Stock Price"
+              required
+              autoFocus
+            ></input>
+            <input
+              type="number"
+              id="quantity"
+              placeholder="Quantity of Stock"
+              required
+            ></input>
+            <input
+              type="number"
+              id="current-price"
+              placeholder="Current Stock Price"
+              required
+            ></input>
 
-      <div id="result">{result}</div>
+            <button
+              type="submit"
+              className="check-btn"
+              onClick={(event) => checkHandler(event)}
+            >
+              Check
+            </button>
+          </form>
+
+          <div id="result">{result}</div>
+        </div>
+
+        <div className="stock_img">
+          <img src={stocks} alt="Stocks" className="stocks" />
+        </div>
+      </div>
+
+      <footer>
+        <a href="https://himadrishah.tech">Himadri Shah</a>
+      </footer>
     </div>
   );
 }
