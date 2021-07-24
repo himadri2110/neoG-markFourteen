@@ -23,7 +23,6 @@ body {
 .App {
   font-family: "Roboto", sans-serif;
   text-align: center;
-  /* max-width: 600px; */
   margin: 0 3rem;
 }
 
@@ -36,11 +35,11 @@ body {
 }
 
 header {
-  margin: 2rem;
+  margin: 2rem 0;
 }
 
 header h1 {
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 .stocks {
@@ -110,6 +109,10 @@ header a {
 }
 
 @media (max-width: 480px) {
+  .App {
+    margin: 0 1rem;
+  }
+
   .stocks {
     width: 15rem;
   }

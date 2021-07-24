@@ -66,7 +66,11 @@ export default function App() {
       <header>
         <h1>Stocks Yay or Nay?</h1>
         <div>
-          <a href="https://github.com/himadri2110/profit-or-loss">
+          <a
+            href="https://github.com/himadri2110/neoG-markFourteen"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             GitHub Repo
           </a>
         </div>
@@ -81,20 +85,20 @@ export default function App() {
             <input
               type="number"
               id="initial-price"
-              placeholder="Initial Stock Price"
+              placeholder="Initial Stock Price*"
               required
               autoFocus
             ></input>
             <input
               type="number"
               id="quantity"
-              placeholder="Quantity of Stock"
+              placeholder="Quantity of Stock*"
               required
             ></input>
             <input
               type="number"
               id="current-price"
-              placeholder="Current Stock Price"
+              placeholder="Current Stock Price*"
               required
             ></input>
 
@@ -116,7 +120,13 @@ export default function App() {
       </div>
 
       <footer>
-        <a href="https://himadrishah.tech">Himadri Shah</a>
+        <a
+          href="https://himadrishah.tech"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Himadri Shah
+        </a>
       </footer>
     </div>
   );
