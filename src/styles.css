@@ -23,15 +23,7 @@ body {
 .App {
   font-family: "Roboto", sans-serif;
   text-align: center;
-  margin: 0 3rem;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 3rem 0 1rem 0;
+  margin: 0 1rem;
 }
 
 header {
@@ -42,14 +34,15 @@ header h1 {
   margin: 1rem 0;
 }
 
-.stocks {
-  flex: 1;
-  width: 25rem;
-  height: auto;
-  margin: 0 2rem;
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 3rem 0 1rem 0;
 }
 
-.main {
+.wrapper {
   flex: 1;
   margin: 0 2rem;
 }
@@ -80,6 +73,13 @@ button {
   cursor: pointer;
 }
 
+.stocks {
+  flex: 1;
+  width: 25rem;
+  height: auto;
+  margin: 0 2rem;
+}
+
 footer {
   margin-top: auto;
   height: 3rem;
@@ -92,33 +92,28 @@ header a {
   color: inherit;
 }
 
-@media (max-width: 900px) {
-  .wrapper {
+@media (max-width: 992px) {
+  main {
     flex-direction: column-reverse;
     align-items: center;
+    margin: 2rem 0;
+  }
+
+  .wrapper {
     margin: 2rem 0;
   }
 
   .stocks {
     width: 20rem;
   }
-
-  .main {
-    margin: 2rem 0;
-  }
 }
 
 @media (max-width: 480px) {
-  .App {
-    margin: 0 1rem;
-  }
-
-  .stocks {
-    width: 15rem;
-  }
-
   input,
   button {
     width: 12rem;
+  }
+  .stocks {
+    width: 15rem;
   }
 }
