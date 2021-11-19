@@ -23,11 +23,11 @@ body {
 .App {
   font-family: "Roboto", sans-serif;
   text-align: center;
-  margin: 0 1rem;
+  padding: 0 1rem;
 }
 
 header {
-  margin: 2rem 0;
+  padding: 1rem 0;
 }
 
 header h1 {
@@ -81,15 +81,23 @@ button {
 }
 
 footer {
-  margin-top: auto;
+  margin: auto 2rem 0;
   height: 3rem;
   line-height: 3rem;
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 footer a,
-header a {
+header a,
+.social-links a {
   color: inherit;
+}
+
+.social-links a {
+  margin-left: 0.5rem;
 }
 
 @media (max-width: 992px) {
@@ -115,5 +123,11 @@ header a {
   }
   .stocks {
     width: 15rem;
+  }
+  footer {
+    flex-direction: column;
+  }
+  .social-links a {
+    margin: 0 0.25rem;
   }
 }
