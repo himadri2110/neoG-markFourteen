@@ -1,24 +1,22 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./styles.css";
 import stocks from "./stocks.svg";
 
 export default function App() {
-  var [result, setResult] = useState("");
+  const [result, setResult] = useState("");
+
+  const [initialPrice, setInitialPrice] = useState(0);
+  const [stockQuantity, setStockQuantity] = useState(0);
+  const [currentPrice, setCurrentPrice] = useState(0);
+
+  const [backgroundColor, setBackgroundColor] = useState("rgb(170, 183, 255)");
 
   function checkHandler(event) {
     event.preventDefault();
 
-    let diff, percent, msg;
-
-    let body = document.querySelector("body");
-    let initialPrice = document.querySelector("#initial-price").value;
-    let quantity = document.querySelector("#quantity").value;
-    let currentPrice = document.querySelector("#current-price").value;
-
-    // convert to number *IMP*
-    initialPrice = Number(initialPrice);
-    quantity = Number(quantity);
-    currentPrice = Number(currentPrice);
+    let diff = 0,
+      percent = 0,
+      msg;
 
     if (initialPrice > currentPrice) {
       // loss
@@ -26,13 +24,13 @@ export default function App() {
       percent = (diff / initialPrice) * 100;
 
       msg = `You have incurred ${percent.toFixed(1)}% loss worth Rs.${(
-        diff * quantity
+        diff * stockQuantity
       ).toFixed(1)} 😞`;
 
       if (percent > 50) {
-        body.style.backgroundColor = "rgb(255, 83, 83)";
+        setBackgroundColor("rgb(255, 94, 94)");
       } else {
-        body.style.backgroundColor = "rgb(170, 183, 255)";
+        setBackgroundColor("rgb(170, 183, 255)");
       }
     } else if (currentPrice > initialPrice) {
       // profit
@@ -40,24 +38,24 @@ export default function App() {
       percent = (diff / initialPrice) * 100;
 
       msg = `You have gained ${percent.toFixed(1)}% profit worth Rs.${(
-        diff * quantity
+        diff * stockQuantity
       ).toFixed(1)} 😀`;
 
       if (percent > 50) {
-        body.style.backgroundColor = "rgb(83, 255, 106)";
+        setBackgroundColor("rgb(83, 255, 106)");
       } else {
-        body.style.backgroundColor = "rgb(170, 183, 255)";
+        setBackgroundColor("rgb(170, 183, 255)");
       }
     } else {
       // no profit or loss
       msg = "You're still! 😐";
-      body.style.backgroundColor = "rgb(170, 183, 255)";
+      setBackgroundColor("rgb(170, 183, 255)");
     }
     setResult(msg);
   }
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: backgroundColor }}>
       <header>
         <h1>Stocks Yay or Nay?</h1>
         <div>
@@ -84,6 +82,7 @@ export default function App() {
               required
               autoFocus
               min="1"
+              onChange={(e) => setInitialPrice(Number(e.target.value))}
             ></input>
             <input
               type="number"
@@ -91,6 +90,7 @@ export default function App() {
               placeholder="Quantity of Stock*"
               required
               min="1"
+              onChange={(e) => setStockQuantity(Number(e.target.value))}
             ></input>
             <input
               type="number"
@@ -98,6 +98,7 @@ export default function App() {
               placeholder="Current Stock Price*"
               required
               min="1"
+              onChange={(e) => setCurrentPrice(Number(e.target.value))}
             ></input>
 
             <button type="submit" className="check-btn">
@@ -121,6 +122,30 @@ export default function App() {
         >
           Himadri Shah
         </a>
+
+        <span className="social-links">
+          <a
+            href="https://github.com/himadri2110"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/himadri2110/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://twitter.com/himadri2110"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter
+          </a>
+        </span>
       </footer>
     </div>
   );
